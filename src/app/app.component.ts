@@ -1,9 +1,19 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import {MatSidenav, MatSidenavContainer, MatSidenavContent} from '@angular/material/sidenav';
+import {MatToolbar} from '@angular/material/toolbar';
+import {MatButton} from '@angular/material/button';
+import {TableComponent} from './components/table/table.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [
+    MatSidenavContainer,
+    MatToolbar,
+    MatButton,
+    MatSidenav,
+    MatSidenavContent,
+    TableComponent
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
