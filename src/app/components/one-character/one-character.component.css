@@ -1,27 +1,32 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  box-sizing: border-box;
+}
+
 .character-image {
   position: relative;
   width: 100%;
-  height: 300px;            /* altura fija o relativa (p. ej. 50% del padre) */
+  flex: 1 1 auto;
   overflow: hidden;
 }
 .character-image img {
-  /* 1) Fija la altura al 100% del padre */
-  height: 100%;         /* la imagen nunca superará los 200px */
-  /* 2) Ajusta el ancho automáticamente según el aspect-ratio */
+  height: 100%;
   width: auto;
-  /* 3) Opcional: recorta centrado si el ancho excede el contenedor */
   object-fit: contain;
   object-position: center;
-  display: block;      /* recorta o encaja la imagen */
+  display: block;
 }
+
 
 
 .character-card {
   display: flex;
   flex-direction: column;
   height: 100%;
-  background-color: inherit; /* hereda el fondo del tema */
-  color: inherit;            /* hereda el color del texto */
+  background-color: inherit;
+  color: inherit;
   box-sizing: border-box;
   padding: 0;
 }
@@ -30,8 +35,9 @@
   list-style: none;
   padding: 16px;
   margin: 0;
-  flex: 1 1 auto;
-  overflow-y: auto; /* si la lista crece, permite scroll interno */
+  height: auto;
+  flex: 0 0 auto;
+  overflow: visible;
 }
 
 .character-info li {
@@ -47,12 +53,14 @@
 .character-favorite {
   padding: 16px;
   margin: 0;
+  height: auto;
+  flex: 0 0 auto;
 }
 
 mat-chip {
   display: inline-flex;
   align-items: center;
-  gap: 8px; /* Espacio entre el ícono y el texto */
+  gap: 8px;
   font-weight: 500;
 }
 

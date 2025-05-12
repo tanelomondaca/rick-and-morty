@@ -1,0 +1,44 @@
+:host {
+  display: inline-flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.summary-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+.totals-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex: 1 1 0;
+}
+
+.section-title {
+  margin: 0;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.horizontal-list {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+mat-list-item {
+  white-space: nowrap;
+  overflow: visible;
+  text-overflow: unset;
+  padding: 0 8px;
+  font-size: 14px;
+}
