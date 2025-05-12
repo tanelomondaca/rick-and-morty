@@ -8,7 +8,7 @@ import {HttpClient} from '@angular/common/http';
 @Component({
   selector: 'app-table',
   imports: [MatTableModule],
-  providers: [CharactersService, HttpClient],
+  providers: [HttpClient],
   templateUrl: './table.component.html',
   styleUrl: './table.component.css'
 })
@@ -26,5 +26,12 @@ export class TableComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.subs.unsubscribe();
+  }
+
+  selectCharacter(id: string) {
+    this.charactersService.loadingNewCharacter()
+    this.charactersService.getCharacterById(id).subscribe( character => {
+      this.charactersService.updateCharacter(character);
+    })
   }
 }

@@ -1,5 +1,5 @@
 
-<div class="character-card">
+<div class="character-card" *ngIf="character && !isLoadingCharacter">
   <div class="character-image">
     <img
       ngSrc="{{ character.image }}"
@@ -21,3 +21,8 @@
   </mat-chip-set>
 
 </div>
+
+<div *ngIf="isLoadingCharacter" class="spinner-wrapper">
+  <mat-spinner></mat-spinner>
+</div>
+
