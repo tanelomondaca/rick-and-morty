@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpParams} from '@angular/common/http';
 import {map, Observable, BehaviorSubject, delay} from 'rxjs';
 import {ApiResponse, Character, Filters} from '../interfaces/character.interface';
+import {environments} from '../../environments/environments';
 
 @Injectable({
   providedIn: 'root'
@@ -49,12 +50,12 @@ export class CharactersService {
       if (filters.status?.length) params = params.set('status', filters.status)
 
     return this._httpClient
-      .get<ApiResponse>(`https://rickandmortyapi.com/api/character`, { params });
+      .get<ApiResponse>(`${environments.paths.base}${environments.paths.characters}`, { params });
   }
 
   getCharacterById(id: number): Observable<Character> {
     return this._httpClient
-      .get<Character>(`https://rickandmortyapi.com/api/character/${id}`)
+      .get<Character>(`${environments.paths.base}${environments.paths.characters}/${id}`)
       .pipe(
         delay(1000)
       )
