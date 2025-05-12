@@ -3,17 +3,18 @@
   <div class="character-image">
     <img
       ngSrc="{{ character.image }}"
-      alt="{{ character.name }}"
+      alt="{{ character.id }}"
       fill
     />
   </div>
 
 
   <ul class="character-info">
-    <li><strong>Nombre:</strong> {{ character.name }}</li>
-    <li><strong>Localización:</strong> {{ character.location.name }}</li>
-    <li><strong>Origen:</strong> {{ character.origin.name }}</li>
-    <li><strong>Episodio:</strong> {{ character.episode[0] }}</li>
+    <li><strong>Localización:</strong> {{ character.locationName }}</li>
+    <li><strong>Residente en Localización:</strong> {{ character.locationResident }}</li>
+    <li><strong>Origen:</strong> {{ character.originName }}</li>
+    <li><strong>Residente en origen:</strong> {{ character.originResident }}</li>
+    <li><strong>Episodio:</strong> {{ character.episodeName }}</li>
   </ul>
 
   <mat-chip-set class="character-favorite">

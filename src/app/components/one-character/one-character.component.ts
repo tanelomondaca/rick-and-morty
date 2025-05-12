@@ -1,6 +1,6 @@
 import {Component, inject, OnDestroy, OnInit} from '@angular/core';
 import {CommonModule, NgOptimizedImage} from '@angular/common';
-import {Character} from '../../core/interfaces/character.interface';
+import {OneCharacter} from '../../core/interfaces/character.interface';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatIconModule} from '@angular/material/icon';
 import {CharactersService} from '../../core/services/characters.service';
@@ -21,9 +21,9 @@ import {MatProgressSpinner} from '@angular/material/progress-spinner';
 })
 export class OneCharacterComponent implements OnInit, OnDestroy {
   charactersService = inject(CharactersService);
-  character: Character | null = null;
+  character: OneCharacter | null = null;
   isLoadingCharacter = false;
-  favoriteCharacters: Character[] = [];
+  favoriteCharacters: OneCharacter[] = [];
   isMarkedAsFavorite = false;
 
   subs = new Subscription()
@@ -60,7 +60,7 @@ export class OneCharacterComponent implements OnInit, OnDestroy {
     this.subs.unsubscribe();
   }
 
-  changeFavorite(character: Character) {
+  changeFavorite(character: OneCharacter) {
     if (this.isMarkedAsFavorite) {
       this.charactersService.deleteFavoriteCharacter(character)
       this.isMarkedAsFavorite = false;

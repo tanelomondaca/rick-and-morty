@@ -3,7 +3,7 @@ import {MatChip, MatChipSet} from '@angular/material/chips';
 import {MatIconModule} from '@angular/material/icon';
 import {CharactersService} from '../../core/services/characters.service';
 import {Subscription} from 'rxjs';
-import {Character} from '../../core/interfaces/character.interface';
+import {Character, OneCharacter} from '../../core/interfaces/character.interface';
 import {NgForOf} from '@angular/common';
 
 @Component({
@@ -21,7 +21,7 @@ export class FavoriteCharactersComponent implements OnInit {
 
   private charactersService = inject(CharactersService);
   private subs = new Subscription();
-  protected favCharacters: Character[] = [];
+  protected favCharacters: OneCharacter[] = [];
 
   constructor() {}
 
