@@ -1,18 +1,54 @@
-.sidenav-container {
+:host {
+  display: grid;
   height: 100vh;
+  grid-template-rows: 20% 70% 10%;
+  grid-template-columns: 1fr;
+  row-gap: 0;
+  overflow: hidden;
+  background-color: inherit;
 }
 
-.sidenav {
-  width: 250px;
-  padding: 10px;
+.header {
+  grid-row: 1;
+  width: 100%;
+  height: 100%;
 }
 
-.main-content {
+.main {
+  grid-row: 2;
+  display: grid;
+  grid-template-columns: 70% 30%;
+  column-gap: 16px;
+  padding: 8px;
+  background-color: inherit;
+}
+
+.left, .right {
   display: flex;
   flex-direction: column;
   height: 100%;
 }
 
-.content {
-  padding: 20px;
+.left {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  overflow: auto;
+}
+
+
+.footer {
+  grid-row: 3;
+  width: 100%;
+  height: 100%;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+mat-card {
+  height: 100%;         /* que herede el 100% del grid row */
 }

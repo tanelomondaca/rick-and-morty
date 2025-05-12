@@ -1,16 +1,16 @@
-<mat-sidenav-container class="sidenav-container">
-  <mat-sidenav mode="side" opened class="sidenav secondary">
-    <!-- Contenido del sidebar -->
-    <p>Menú</p>
-    <button mat-button>Inicio</button>
-    <button mat-button>Configuración</button>
-  </mat-sidenav>
+<mat-toolbar color="primary" class="header">
+  <app-favorite-characters></app-favorite-characters>
+</mat-toolbar>
 
-  <mat-sidenav-content class="main-content">
-    <!-- Contenido principal -->
-    <mat-toolbar color="primary">Mi Aplicación</mat-toolbar>
-    <div class="content">
-      <app-table></app-table>
-    </div>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+<div class="main">
+  <mat-card class="left" color="secondary">
+    <app-table></app-table>
+  </mat-card>
+  <mat-card class="right">
+    <app-one-character></app-one-character>
+  </mat-card>
+</div>
+
+<mat-toolbar color="accent" class="footer">
+  <app-summary-totals></app-summary-totals>
+</mat-toolbar>
