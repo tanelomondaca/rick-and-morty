@@ -23,13 +23,13 @@ export class CharactersService {
   }
 
   addFavoriteCharacter(arg: Character) {
-    const favChacarters: Character[] = this._favoriteCharacters.getValue();
-    this._favoriteCharacters.next([...favChacarters, arg]);
+    const favCharacters: Character[] = this._favoriteCharacters.getValue();
+    this._favoriteCharacters.next([...favCharacters, arg]);
   }
 
   deleteFavoriteCharacter(arg: Character) {
-    const favChacarters: Character[] = this._favoriteCharacters.getValue();
-    const favCharactersUpdate = favChacarters.filter(favChacarter => { return favChacarter.id !== arg.id; });
+    const favCharacters: Character[] = this._favoriteCharacters.getValue();
+    const favCharactersUpdate = favCharacters.filter(favCharacter => { return favCharacter.id !== arg.id; });
     this._favoriteCharacters.next(favCharactersUpdate);
   }
 
@@ -47,12 +47,19 @@ export class CharactersService {
       );
   }
 
-  getCharacterById(id: string): Observable<Character> {
+  getCharacterById(id: number): Observable<Character> {
     return this._httpClient
       .get<Character>(`https://rickandmortyapi.com/api/character/${id}`)
       .pipe(
         delay(1000)
       )
+  }
+
+  getSelectedCharacter(id: number) {
+    this.loadingNewCharacter()
+    this.getCharacterById(id).subscribe(character => {
+      this.updateCharacter(character);
+    })
   }
 
 }

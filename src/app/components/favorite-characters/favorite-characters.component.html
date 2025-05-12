@@ -2,7 +2,11 @@
 
 @if (favCharacters && favCharacters.length > 0) {
   <mat-chip-set class="character-favorite">
-    <mat-chip color="accent" *ngFor="let character of favCharacters">
+    <mat-chip
+      color="accent"
+      *ngFor="let character of favCharacters"
+      (click)="loadCharacter(character.id)"
+    >
       {{ character.name }}
     </mat-chip>
   </mat-chip-set>

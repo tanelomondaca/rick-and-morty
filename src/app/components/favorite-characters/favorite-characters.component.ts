@@ -29,4 +29,8 @@ export class FavoriteCharactersComponent implements OnInit {
     const subFavChar = this.charactersService.favoriteCharacters$.subscribe(resp => this.favCharacters = resp)
     this.subs.add(subFavChar);
   }
+
+  loadCharacter(characterId: number) {
+    this.charactersService.getSelectedCharacter(characterId)
+  }
 }

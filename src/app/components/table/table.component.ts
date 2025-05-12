@@ -28,10 +28,7 @@ export class TableComponent implements OnInit, OnDestroy {
     this.subs.unsubscribe();
   }
 
-  selectCharacter(id: string) {
-    this.charactersService.loadingNewCharacter()
-    this.charactersService.getCharacterById(id).subscribe( character => {
-      this.charactersService.updateCharacter(character);
-    })
+  selectCharacter(id: number) {
+    this.charactersService.getSelectedCharacter(id)
   }
 }
