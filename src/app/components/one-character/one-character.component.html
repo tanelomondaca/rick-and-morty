@@ -1,0 +1,23 @@
+
+<div class="character-card">
+  <div class="character-image">
+    <img
+      ngSrc="{{ character.image }}"
+      alt="{{ character.name }}"
+      fill
+    />
+  </div>
+
+
+  <ul class="character-info">
+    <li><strong>Nombre:</strong> {{ character.name }}</li>
+    <li><strong>Localización:</strong> {{ character.location.name }}</li>
+    <li><strong>Origen:</strong> {{ character.origin.name }}</li>
+    <li><strong>Episodio:</strong> {{ character.episode[0] }}</li>
+  </ul>
+
+  <mat-chip-set class="character-favorite">
+    <mat-chip color="accent">Favorito</mat-chip>
+  </mat-chip-set>
+
+</div>
