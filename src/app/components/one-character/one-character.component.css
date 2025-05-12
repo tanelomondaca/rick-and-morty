@@ -1,7 +1,7 @@
 .character-image {
   position: relative;
   width: 100%;
-  height: 400px;            /* altura fija o relativa (p. ej. 50% del padre) */
+  height: 300px;            /* altura fija o relativa (p. ej. 50% del padre) */
   overflow: hidden;
 }
 .character-image img {

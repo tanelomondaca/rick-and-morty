@@ -50,5 +50,5 @@ html, body {
 }
 
 mat-card {
-  height: 100%;         /* que herede el 100% del grid row */
+  height: 100%;
 }
