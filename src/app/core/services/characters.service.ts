@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpParams} from '@angular/common/http';
 import {map, Observable, BehaviorSubject, delay} from 'rxjs';
-import {ApiResponse, Character} from '../interfaces/character.interface';
+import {ApiResponse, Character, Filters} from '../interfaces/character.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -39,12 +39,17 @@ export class CharactersService {
 
   constructor(private readonly _httpClient: HttpClient) { }
 
-  getCharacters(): Observable<Character[]> {
+  getCharacters(page = 1, filters: Filters): Observable<ApiResponse> {
+    let params = new HttpParams()
+      .set('page', page)
+
+      if (filters.gender?.length) params = params.set('gender', filters.gender)
+      if (filters.species?.length) params = params.set('species', filters.species)
+      if (filters.name?.length) params = params.set('name', filters.name)
+      if (filters.status?.length) params = params.set('status', filters.status)
+
     return this._httpClient
-      .get<ApiResponse>('https://rickandmortyapi.com/api/character')
-      .pipe(
-        map((response) => response.results)
-      );
+      .get<ApiResponse>(`https://rickandmortyapi.com/api/character`, { params });
   }
 
   getCharacterById(id: number): Observable<Character> {

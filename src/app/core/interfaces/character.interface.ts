@@ -1,3 +1,5 @@
+import {FormControl} from '@angular/forms';
+
 export interface ApiResponse {
   info:    Info;
   results: Character[];
@@ -35,3 +37,17 @@ export interface Location {
 export type Species = "Human" | "Alien";
 
 export type Status = "Alive" | "unknown" | "Dead";
+
+export interface Filters {
+  name: string;
+  species: string;
+  status: string;
+  gender: string;
+}
+
+export interface FilterForm {
+  name: FormControl<string | null>;
+  species: FormControl<string | null>;
+  status: FormControl<string | null>;
+  gender: FormControl<string | null>;
+}
