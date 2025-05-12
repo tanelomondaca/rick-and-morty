@@ -1,16 +1,10 @@
 <h3 class="favorite-title">Favorites characters</h3>
 
-@if (false) {
+@if (favCharacters && favCharacters.length > 0) {
   <mat-chip-set class="character-favorite">
-    <mat-chip color="accent">
-      Rick Sanchez
+    <mat-chip color="accent" *ngFor="let character of favCharacters">
+      {{ character.name }}
     </mat-chip>
-    <mat-chip color="accent">Rick Sanchez</mat-chip>
-    <mat-chip color="accent">Rick Sanchez</mat-chip>
-    <mat-chip color="accent">Rick Sanchez</mat-chip>
-    <mat-chip color="accent">Rick Sanchez</mat-chip>
-    <mat-chip color="accent">Rick Sanchez</mat-chip>
-
   </mat-chip-set>
 } @else {
   <p>No hay caracteres seleccionados como favoritos</p>

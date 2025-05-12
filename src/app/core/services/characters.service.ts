@@ -14,9 +14,23 @@ export class CharactersService {
   private _charactersStatus = new BehaviorSubject<boolean>(false);
   public isLoadingCharacter$ = this._charactersStatus.asObservable();
 
+  private _favoriteCharacters= new BehaviorSubject<Character[]>([]);
+  public favoriteCharacters$ = this._favoriteCharacters.asObservable();
+
   updateCharacter(arg: Character) {
     this._characterSelected.next(arg);
     this._charactersStatus.next(false);
+  }
+
+  addFavoriteCharacter(arg: Character) {
+    const favChacarters: Character[] = this._favoriteCharacters.getValue();
+    this._favoriteCharacters.next([...favChacarters, arg]);
+  }
+
+  deleteFavoriteCharacter(arg: Character) {
+    const favChacarters: Character[] = this._favoriteCharacters.getValue();
+    const favCharactersUpdate = favChacarters.filter(favChacarter => { return favChacarter.id !== arg.id; });
+    this._favoriteCharacters.next(favCharactersUpdate);
   }
 
   loadingNewCharacter() {

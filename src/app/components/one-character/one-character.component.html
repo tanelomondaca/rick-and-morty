@@ -17,7 +17,7 @@
   </ul>
 
   <mat-chip-set class="character-favorite">
-    <mat-chip color="accent">Favorito</mat-chip>
+    <mat-chip color="accent" (click)="changeFavorite(character)">{{ isMarkedAsFavorite ? 'Eliminar de favoritos' : 'Marcar como favorito' }}</mat-chip>
   </mat-chip-set>
 
 </div>

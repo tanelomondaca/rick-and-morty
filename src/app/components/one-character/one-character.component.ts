@@ -23,23 +23,50 @@ export class OneCharacterComponent implements OnInit, OnDestroy {
   charactersService = inject(CharactersService);
   character: Character | null = null;
   isLoadingCharacter = false;
+  favoriteCharacters: Character[] = [];
+  isMarkedAsFavorite = false;
 
   subs = new Subscription()
 
   constructor() {}
 
   ngOnInit() {
-    const subCharacter = this.charactersService.characterSelected$.subscribe(character => {
+    const subCharacter = this.charactersService
+      .characterSelected$
+      .subscribe(character => {
       this.character = character;
+      if (character) {
+        this.isMarkedAsFavorite = this.favoriteCharacters.some(favChar => favChar.id === character.id);
+      } else {
+        this.isMarkedAsFavorite = false;
+      }
     });
-
-    const subStatus = this.charactersService.isLoadingCharacter$.subscribe(isLoadingCharacter => this.isLoadingCharacter = isLoadingCharacter);
-
     this.subs.add(subCharacter);
+
+    const subStatus = this.charactersService
+      .isLoadingCharacter$
+      .subscribe(isLoadingCharacter => this.isLoadingCharacter = isLoadingCharacter);
     this.subs.add(subStatus);
+
+    const subFavCharacter = this.charactersService
+      .favoriteCharacters$
+      .subscribe(favCharacters => {
+        this.favoriteCharacters = favCharacters;
+      })
+    this.subs.add(subFavCharacter);
   }
 
   ngOnDestroy() {
     this.subs.unsubscribe();
+  }
+
+  changeFavorite(character: Character) {
+    if (this.isMarkedAsFavorite) {
+      this.charactersService.deleteFavoriteCharacter(character)
+      this.isMarkedAsFavorite = false;
+    } else {
+      this.isMarkedAsFavorite = true;
+      this.charactersService.addFavoriteCharacter(character);
+    }
   }
 }
