@@ -1,55 +1,10 @@
 <div class="table-container">
 
-  <div class="filters" >
-    <form [formGroup]="filterForm" class="filters-form">
-
-      <!-- Name -->
-      <mat-form-field appearance="outline" class="filter-field">
-        <mat-label>Name</mat-label>
-        <input matInput formControlName="name" placeholder="Name" />
-      </mat-form-field>
-
-      <!-- Species -->
-      <mat-form-field appearance="outline" class="filter-field">
-        <mat-label>Species</mat-label>
-        <input matInput formControlName="species" placeholder="Species" />
-      </mat-form-field>
-
-      <!-- Status toggle -->
-      <mat-button-toggle-group formControlName="status" appearance="legacy" class="filter-toggle">
-        <mat-button-toggle value="alive">Alive</mat-button-toggle>
-        <mat-button-toggle value="dead">Dead</mat-button-toggle>
-        <mat-button-toggle value="unknown">Unknown</mat-button-toggle>
-      </mat-button-toggle-group>
-
-      <!-- Gender toggle -->
-      <mat-button-toggle-group formControlName="gender" appearance="legacy" class="filter-toggle">
-        <mat-button-toggle value="male">Male</mat-button-toggle>
-        <mat-button-toggle value="female">Female</mat-button-toggle>
-      </mat-button-toggle-group>
-
-      <!-- Buscar -->
-      <button
-        mat-raised-button
-        color="primary"
-        type="submit"
-        class="filter-button"
-        (click)="filterCharacters()"
-      >
-        Search
-      </button>
-      <button
-        mat-raised-button
-        color="secondary"
-        type="button"
-        class="filter-button"
-        (click)="cleanFilters()"
-      >
-        Clear
-      </button>
-
-    </form>
-  </div>
+  <app-filter-form
+    [filterForm]="filterForm"
+    (onSearch)="filterCharacters()"
+    (onClear)="cleanFilters()"
+  ></app-filter-form>
 
   <div class="table-scroll-wrapper">
 

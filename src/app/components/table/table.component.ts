@@ -11,6 +11,7 @@ import {MatFormField, MatInput, MatLabel} from '@angular/material/input';
 import {MatButtonToggle, MatButtonToggleGroup} from '@angular/material/button-toggle';
 import {StatusColorDirective} from '../../core/directives/status-color.directive';
 import {CommonModule, DatePipe} from '@angular/common';
+import {FilterFormComponent} from '../filter-form/filter-form.component';
 
 @Component({
   selector: 'app-table',
@@ -26,7 +27,8 @@ import {CommonModule, DatePipe} from '@angular/common';
     MatButtonToggleGroup,
     MatButtonToggle,
     StatusColorDirective,
-    CommonModule
+    CommonModule,
+    FilterFormComponent
   ],
   providers: [HttpClient],
   templateUrl: './table.component.html',
