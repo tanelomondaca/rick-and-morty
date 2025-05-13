@@ -10,6 +10,7 @@ import {MatButton} from '@angular/material/button';
 import {MatFormField, MatInput, MatLabel} from '@angular/material/input';
 import {MatButtonToggle, MatButtonToggleGroup} from '@angular/material/button-toggle';
 import {StatusColorDirective} from '../../core/directives/status-color.directive';
+import {CommonModule, DatePipe} from '@angular/common';
 
 @Component({
   selector: 'app-table',
@@ -24,7 +25,8 @@ import {StatusColorDirective} from '../../core/directives/status-color.directive
     MatButtonToggleGroup,
     MatButtonToggleGroup,
     MatButtonToggle,
-    StatusColorDirective
+    StatusColorDirective,
+    CommonModule
   ],
   providers: [HttpClient],
   templateUrl: './table.component.html',
