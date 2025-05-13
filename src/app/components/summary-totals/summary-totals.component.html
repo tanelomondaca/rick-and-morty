@@ -1,18 +1,14 @@
 <div class="summary-container">
   <div class="totals-section">
     <p class="section-title">Total por especie</p>
-    <mat-list class="horizontal-list">
-      <mat-list-item>Humano: 1561</mat-list-item>
-      <mat-list-item>Alien: 84984</mat-list-item>
-      <mat-list-item>Monstruo: 46546</mat-list-item>
-    </mat-list>
-  </div>
-  <div class="totals-section type-section">
-    <p class="section-title">Total por tipo</p>
-    <mat-list class="horizontal-list">
-      <mat-list-item>Robot: 82</mat-list-item>
-      <mat-list-item>Humanoide: 176</mat-list-item>
-      <mat-list-item>Criatura mitológica: 20</mat-list-item>
-    </mat-list>
+    @if (isLoading) {
+      <p class="section-title">Está cargando...</p>
+    } @else {
+      <p
+        *ngFor="let specie of Object.values(Species)"
+        class="list-item"
+      >
+        {{ specie }}: {{ totalBySpecies.get(specie) }}</p>
+    }
   </div>
 </div>

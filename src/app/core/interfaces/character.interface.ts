@@ -27,7 +27,26 @@ export interface Character {
   created:  Date;
 }
 
-export type Gender = "Male" | "Female" | "unknown";
+export enum Gender {
+  Female = "Female",
+  Genderless = "Genderless",
+  Male = "Male",
+  Unknown = "unknown",
+}
+
+export enum Species {
+  Alien = "Alien",
+  Animal = "Animal",
+  Cronenberg = "Cronenberg",
+  Disease = "Disease",
+  Human = "Human",
+  Humanoid = "Humanoid",
+  MythologicalCreature = "Mythological Creature",
+  Poopybutthole = "Poopybutthole",
+  Robot = "Robot",
+  Unknown = "unknown",
+}
+
 
 export interface Location {
   id:        number;
@@ -39,16 +58,18 @@ export interface Location {
   created:   Date;
 }
 
+export enum Status {
+  Alive = "Alive",
+  Dead = "Dead",
+  Unknown = "unknown",
+}
 
-export type Species = "Human" | "Alien";
-
-export type Status = "Alive" | "unknown" | "Dead";
 
 export interface Filters {
-  name: string;
-  species: string;
-  status: string;
-  gender: string;
+  name?: string;
+  species?: string;
+  status?: string;
+  gender?: string;
 }
 
 export interface FilterForm {
