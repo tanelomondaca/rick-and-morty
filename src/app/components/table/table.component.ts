@@ -9,6 +9,7 @@ import {FormBuilder, FormGroup, ReactiveFormsModule} from '@angular/forms';
 import {MatButton} from '@angular/material/button';
 import {MatFormField, MatInput, MatLabel} from '@angular/material/input';
 import {MatButtonToggle, MatButtonToggleGroup} from '@angular/material/button-toggle';
+import {StatusColorDirective} from '../../core/directives/status-color.directive';
 
 @Component({
   selector: 'app-table',
@@ -22,7 +23,8 @@ import {MatButtonToggle, MatButtonToggleGroup} from '@angular/material/button-to
     MatLabel,
     MatButtonToggleGroup,
     MatButtonToggleGroup,
-    MatButtonToggle
+    MatButtonToggle,
+    StatusColorDirective
   ],
   providers: [HttpClient],
   templateUrl: './table.component.html',
