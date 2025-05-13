@@ -1,5 +1,6 @@
 
 <div class="character-card" *ngIf="character && !isLoadingCharacter">
+  <div class="character-title">{{character.name}}</div>
   <div class="character-image">
     <img
       ngSrc="{{ character.image }}"
