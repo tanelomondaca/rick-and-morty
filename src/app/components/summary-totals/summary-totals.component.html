@@ -1,8 +1,8 @@
 <div class="summary-container">
   <div class="totals-section">
-    <p class="section-title">Total por especie</p>
+    <p class="section-title">Total by species</p>
     @if (isLoading) {
-      <p class="section-title">Está cargando...</p>
+      <p class="section-title">Loading...</p>
     } @else {
       <p
         *ngFor="let specie of Object.values(Species)"

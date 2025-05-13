@@ -11,15 +11,15 @@
 
 
   <ul class="character-info">
-    <li><strong>Localización:</strong> {{ character.locationName }}</li>
-    <li><strong>Residente en Localización:</strong> {{ character.locationResident }}</li>
-    <li><strong>Origen:</strong> {{ character.originName }}</li>
-    <li><strong>Residente en origen:</strong> {{ character.originResident }}</li>
-    <li><strong>Episodio:</strong> {{ character.episodeName }}</li>
+    <li><strong>Location:</strong> {{ character.locationName }}</li>
+    <li><strong>Resident in Location:</strong> {{ character.locationResident }}</li>
+    <li><strong>Origin:</strong> {{ character.originName }}</li>
+    <li><strong>Resident in Origin:</strong> {{ character.originResident }}</li>
+    <li><strong>Episode:</strong> {{ character.episodeName }}</li>
   </ul>
 
   <mat-chip-set class="character-favorite">
-    <mat-chip color="accent" (click)="changeFavorite(character)">{{ isMarkedAsFavorite ? 'Eliminar de favoritos' : 'Marcar como favorito' }}</mat-chip>
+    <mat-chip color="accent" (click)="changeFavorite(character)">{{ isMarkedAsFavorite ? 'Remove favorite' : 'Mark as favorite' }}</mat-chip>
   </mat-chip-set>
 
 </div>
